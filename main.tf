@@ -1,5 +1,5 @@
 provider "google" {
-  project = "gcp-terraform-lab"
+  project = "gcp-tf-git"
   region  = "us-central1"
 }
 
