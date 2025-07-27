@@ -2,7 +2,7 @@ provider "google" {
   project = "gcp-tf-git"
   region  = "us-central1"
   # Enable ADC through GitHub Actions WIF
-  credentials = null
+  use_oidc = true
 }
 
 
