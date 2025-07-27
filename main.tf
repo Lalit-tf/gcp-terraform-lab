@@ -1,7 +1,7 @@
 provider "google" {
   project = "gcp-tf-git"
   region  = "us-central1"
-
+  #use WIF instead of ADC as per configured in Action Secret
 }
 
 
