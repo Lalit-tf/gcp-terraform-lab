@@ -8,7 +8,7 @@ provider "google" {
 
 # Create a GCS bucket for the remote state
 resource "google_storage_bucket" "terraform_state" {
-  name     = "remote-backend"  # Replace with a unique bucket name
+  name     = "terraform-state-lalit-2025"  # Replace with a unique bucket name
   location = "US"
 
   versioning {
