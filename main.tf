@@ -5,9 +5,23 @@ provider "google" {
   region  = "us-central1"      # Replace with your preferred region
 }
 
+# GCS Bucket for remote state
+resource "google_storage_bucket" "terraform_state" {
+  name     = "terraform-state-lalit-2025"  # Replace with your unique bucket name
+  location = "US"
+
+  versioning {
+    enabled = true
+  }
+
+  lifecycle {
+    prevent_destroy = true  # Prevent accidental deletion
+  }
+}
+
 terraform {
   backend "gcs" {
-    bucket = "terraform-state-lalit-2025"  # Ensure this is the same bucket as the one created
+    bucket = "terraform-state-lalit-2025"  # Same bucket created above
     prefix = "terraform/state"
   }
 }
