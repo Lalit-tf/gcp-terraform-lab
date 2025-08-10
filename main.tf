@@ -1,12 +1,14 @@
-# Define the Google Cloud provider
+# main.tf
+
+# Google Cloud Provider Configuration
 provider "google" {
-  project = "gcp-tf-git"
-  region  = "us-central1"
+  project = "gcp-tf-git"  # Replace with your actual project ID
+  region  = "us-central1"      # Replace with your preferred region
 }
 
-# Create a GCS bucket for Terraform state
+# Create a GCS bucket for the remote state
 resource "google_storage_bucket" "terraform_state" {
-  name     = "remote backend"  # Ensure this is globally unique
+  name     = "Remote Backend"  # Replace with a unique bucket name
   location = "US"
 
   versioning {
@@ -14,14 +16,6 @@ resource "google_storage_bucket" "terraform_state" {
   }
 
   lifecycle {
-    prevent_destroy = true
-  }
-}
-
-# Now, we’ll reference this bucket for remote state storage
-terraform {
-  backend "gcs" {
-    bucket = "remote backend"  #  references the created bucket
-    prefix = "terraform/state"  # This creates a folder structure inside the bucket
+    prevent_destroy = true  # Prevent accidental deletion
   }
 }
