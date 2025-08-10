@@ -8,7 +8,7 @@ provider "google" {
 
 # Create a GCS bucket for the remote state
 resource "google_storage_bucket" "terraform_state" {
-  name     = "Remote Backend"  # Replace with a unique bucket name
+  name     = "remote-backend"  # Replace with a unique bucket name
   location = "US"
 
   versioning {
