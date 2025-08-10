@@ -6,18 +6,18 @@ provider "google" {
 }
 
 # GCS Bucket for remote state
-resource "google_storage_bucket" "terraform_state" {
-  name     = "terraform-state-lalit-2025"  # Replace with your unique bucket name
-  location = "US"
+#resource "google_storage_bucket" "terraform_state" {
+  #name     = "terraform-state-lalit-2025"  # Replace with your unique bucket name
+  #location = "US"
 
-  versioning {
-    enabled = true
-  }
+  #versioning {
+    #enabled = true
+  #}
 
-  lifecycle {
-    prevent_destroy = true  # Prevent accidental deletion
-  }
-}
+  #lifecycle {
+   # prevent_destroy = true  # Prevent accidental deletion
+  #}
+#}
 
 terraform {
   backend "gcs" {
